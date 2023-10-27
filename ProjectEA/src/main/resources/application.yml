@@ -1,0 +1,31 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: ProjectEA
+  datasource:
+    url: jdbc:sqlserver://cs544.cs.miu.edu;databaseName=CS544-202305-09;trustServerCertificate=true
+    username: CS544-202305-09
+    password: ed090376bb0e
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    hikari:
+      maximumPoolSize: 10
+  jpa:
+    show-sql: true
+    hibernate:
+#      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.SQLServerDialect
+
+logging:
+  file:
+    name: /Logging/${spring.application.name}/logs
+
+    spring:
+      main:
+        allow-bean-definition-overriding: true
